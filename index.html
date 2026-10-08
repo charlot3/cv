@@ -5,146 +5,305 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Li Xinang — CV</title>
 <style>
-  body { margin:0; padding:24px 12px 48px; background:#f2f2f2; color:#111;
-         font-family: Georgia, "Times New Roman", Times, serif; }
-  .wrap { max-width: 860px; margin: 0 auto; }
-  .top { max-width: 860px; margin: 0 auto 14px; display:flex;
-         justify-content:space-between; align-items:flex-start; }
-  .top h1 { font-size: 22px; margin: 0 0 4px; }
-  .top .sub { color:#333; font-size: 14px; }
-  .top a.mail { color:#1a56db; }
-  .btn { background:#222; color:#fff; text-decoration:none; padding:8px 14px;
-         border-radius:6px; font-family: Arial, sans-serif; font-size:13px; }
-  .card { background:#fff; padding:40px 44px; box-shadow:0 1px 4px rgba(0,0,0,.15); }
-  .card h1 { font-size:24px; margin:0; }
-  .card .loc { margin:2px 0 0; }
-  .card .contact { float:right; text-align:right; font-size:13px; }
-  h2 { font-size:13px; letter-spacing:.12em; text-transform:uppercase;
-       border-bottom:1px solid #999; padding-bottom:3px; margin:22px 0 8px; }
-  h3 { font-size:15px; margin:14px 0 2px; }
-  h3 .where { float:right; font-weight:normal; font-size:13px; }
-  .role { font-style:italic; font-size:13.5px; }
-  .role .when { float:right; font-style:italic; font-size:13px; }
-  h4 { font-size:14px; margin:10px 0 4px; }
-  ul { margin:4px 0 8px; padding-left:20px; }
-  li { margin:3px 0; line-height:1.35; font-size:14.5px; }
-  p { font-size:14.5px; line-height:1.4; margin:4px 0; }
-  .clear { clear:both; }
+  :root {
+    --ink: #111;
+    --muted: #333;
+    --rule: #111;
+    --paper: #fff;
+    --page-bg: #ececec;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 16px;
+    line-height: 1.42;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .tools {
+    width: min(880px, calc(100% - 32px));
+    margin: 22px auto 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .download {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+    line-height: 1;
+    color: #333;
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid #c9c9c9;
+    border-radius: 999px;
+    padding: 7px 11px;
+    text-decoration: none;
+  }
+
+  .download:hover { background: #fff; border-color: #a9a9a9; }
+
+  .sheet {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto 48px;
+    background: var(--paper);
+    padding: 54px 64px 58px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .18), 0 14px 34px rgba(0, 0, 0, .08);
+  }
+
+  .resume-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .resume-header h1 {
+    margin: 0;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: .1px;
+  }
+
+  .location {
+    margin: 5px 0 0;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .email {
+    margin: 7px 0 0;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  .email a { color: inherit; text-decoration: none; }
+  .email a:hover { text-decoration: underline; }
+
+  section { margin-top: 22px; }
+  section:first-of-type { margin-top: 25px; }
+
+  h2 {
+    margin: 0 0 9px;
+    padding-bottom: 4px;
+    border-bottom: 1.2px solid var(--rule);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .entry { margin-top: 13px; }
+  .entry:first-of-type { margin-top: 7px; }
+
+  .entry-head,
+  .entry-sub {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .entry-head { font-size: 16.5px; line-height: 1.25; }
+  .company { font-weight: 700; }
+  .where { font-size: 14.5px; font-weight: 400; text-align: right; white-space: nowrap; }
+
+  .entry-sub { margin-top: 1px; font-size: 14.5px; font-style: italic; line-height: 1.3; }
+  .when { text-align: right; white-space: nowrap; }
+
+  h3 {
+    margin: 10px 0 3px;
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  ul {
+    margin: 3px 0 0;
+    padding-left: 20px;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    margin: 2.5px 0;
+    line-height: 1.42;
+    text-align: left;
+  }
+
+  li::before {
+    content: "•";
+    position: absolute;
+    left: -17px;
+    top: 0;
+  }
+
+  p { margin: 4px 0 0; line-height: 1.42; }
+  strong { font-weight: 700; }
+
+  .plain-line { margin-top: 5px; }
+
+  @media (max-width: 700px) {
+    body { font-size: 15px; }
+    .tools { margin-top: 14px; }
+    .sheet { padding: 36px 24px 42px; margin-bottom: 28px; }
+    .resume-header { display: block; }
+    .email { margin-top: 8px; white-space: normal; }
+    .entry-head, .entry-sub { display: block; }
+    .where, .when { display: block; text-align: left; white-space: normal; }
+    .when { margin-top: 1px; }
+  }
+
+  @media print {
+    @page { size: Letter; margin: .55in; }
+    body { background: #fff; font-size: 10.5pt; }
+    .tools { display: none; }
+    .sheet {
+      width: auto;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="top">
-  <div>
-    <h1>Li Xinang</h1>
-    <div class="sub">Senior Software Engineer · Tokyo · <a class="mail" href="mailto:lixinang1997@gmail.com">lixinang1997@gmail.com</a></div>
+  <div class="tools">
+    <a class="download" href="Li-Xinang-CV.pdf">Download PDF</a>
   </div>
-  <a class="btn" href="Li-Xinang-CV.pdf">Download PDF</a>
-</div>
 
-<div class="card">
-  <div class="contact">lixinang1997@gmail.com</div>
-  <h1>Li Xinang</h1>
-  <p class="loc">Tokyo, Japan</p>
-  <div class="clear"></div>
+  <main class="sheet" aria-label="Li Xinang CV">
+    <header class="resume-header">
+      <div>
+        <h1>Li Xinang</h1>
+        <p class="location">Tokyo, Japan</p>
+      </div>
+      <p class="email"><a href="mailto:lixinang1997@gmail.com">lixinang1997@gmail.com</a></p>
+    </header>
 
-  <h2>Summary</h2>
-  <ul>
-    <li>Senior engineer building production LLM and agent systems at Mercari: a Go/GCP pipeline generating listing SEO copy with Gemini, self-built prompt benchmarks, and agent context and memory layers. 7+ years across consumer and fintech companies in Tokyo.</li>
-    <li>In 2026, 449 merged PRs across 29 services of a Go e-commerce monorepo (3rd most active of 87 committers), spanning seller and buyer features, platform migrations, and a partner-facing public API.</li>
-    <li>Four internal talks at Mercari on building MCP servers, harness engineering, Claude Code subagents vs. workflows, and the token cost of context compaction.</li>
-  </ul>
+    <section>
+      <h2>Summary</h2>
+      <ul>
+        <li>Senior engineer building production LLM and agent systems at Mercari: a Go/GCP pipeline generating listing SEO copy with Gemini, self-built prompt benchmarks, and agent context and memory layers. 7+ years across consumer and fintech companies in Tokyo.</li>
+        <li>In 2026, 449 merged PRs across 29 services of a Go e-commerce monorepo (3rd most active of 87 committers), spanning seller and buyer features, platform migrations, and a partner-facing public API.</li>
+        <li>Four internal talks at Mercari on building MCP servers, harness engineering, Claude Code subagents vs. workflows, and the token cost of context compaction.</li>
+      </ul>
+    </section>
 
-  <h2>Experience</h2>
+    <section>
+      <h2>Experience</h2>
 
-  <h3>Mercari <span class="where">Tokyo, Japan</span></h3>
-  <div class="role">Senior Software Engineer <span class="when">Aug 2024 – Present</span></div>
-  <div class="clear"></div>
+      <article class="entry">
+        <div class="entry-head"><span class="company">Mercari</span><span class="where">Tokyo, Japan</span></div>
+        <div class="entry-sub"><span>Senior Software Engineer</span><span class="when">Aug 2024 – Present</span></div>
 
-  <h4>AI &amp; LLM Engineering</h4>
-  <ul>
-    <li><strong>LLM SEO pipeline:</strong> built a Go pipeline (gRPC, Pub/Sub workers, Gemini) generating listing SEO copy; after an analyst's 50/50 A/B test lifted impressions 93% and clicks 12% per listing, rolled out to 100%.</li>
-    <li><strong>Prompt engineering:</strong> rewrote the SEO prompt as 7 grounded rules plus a worked example; chose it on a self-built 334-call benchmark (invented facts on trap cases fell 5% → 0%; genuine quantities kept 98%).</li>
-    <li><strong>Agent context benchmarking:</strong> piloted an agent knowledge base (right document found 5/5, cited 6/6) and wrote its 12 docs; cut 19k unused tool tokens per AI PR review and 32% of the skill list.</li>
-    <li><strong>Context management:</strong> built a Claude Code agent on an internal dev machine that drafts partner API inquiry replies for human review (median 7 min), with untrusted-thread fencing and 7 scoped tools.</li>
-    <li><strong>Memory layer:</strong> wired the agent to a claude-memory MCP server (see Projects); found 16 of 19 stored records never retrieved and moved to one query per key term, matching 61 of 63 logged queries on replay.</li>
-  </ul>
+        <h3>AI &amp; LLM Engineering</h3>
+        <ul>
+          <li><strong>LLM SEO pipeline:</strong> built a Go pipeline (gRPC, Pub/Sub workers, Gemini) generating listing SEO copy; after an analyst's 50/50 A/B test lifted impressions 93% and clicks 12% per listing, rolled out to 100%.</li>
+          <li><strong>Prompt engineering:</strong> rewrote the SEO prompt as 7 grounded rules plus a worked example; chose it on a self-built 334-call benchmark (invented facts on trap cases fell 5% → 0%; genuine quantities kept 98%).</li>
+          <li><strong>Agent context benchmarking:</strong> piloted an agent knowledge base (right document found 5/5, cited 6/6) and wrote its 12 docs; cut 19k unused tool tokens per AI PR review and 32% of the skill list.</li>
+          <li><strong>Context management:</strong> built a Claude Code agent on an internal dev machine that drafts partner API inquiry replies for human review (median 7 min), with untrusted-thread fencing and 7 scoped tools.</li>
+          <li><strong>Memory layer:</strong> wired the agent to a claude-memory MCP server (see Projects); found 16 of 19 stored records never retrieved and moved to one query per key term, matching 61 of 63 logged queries on replay.</li>
+        </ul>
 
-  <h4>Product Systems</h4>
-  <ul>
-    <li><strong>Time sale:</strong> led the backend redesign for campaigns of 4M+ discounted items, with 300-item batched starts every 15 min (2.5× stress-test throughput); unified bulk CSV pipeline built with 3 teammates.</li>
-    <li><strong>Refurbished listings:</strong> owned the backend (design doc, 10 delegated tasks) through a staged launch; generated the category set (+125 categories) and built the refurbished flag a new storefront reuses.</li>
-    <li><strong>Storefront page migration:</strong> led the backend move of seller storefront pages to the main marketplace domain for SEO: 2 design docs, 10 planned tasks (8 delegated), a review RPC, and 4 list RPCs.</li>
-  </ul>
+        <h3>Product Systems</h3>
+        <ul>
+          <li><strong>Time sale:</strong> led the backend redesign for campaigns of 4M+ discounted items, with 300-item batched starts every 15 min (2.5× stress-test throughput); unified bulk CSV pipeline built with 3 teammates.</li>
+          <li><strong>Refurbished listings:</strong> owned the backend (design doc, 10 delegated tasks) through a staged launch; generated the category set (+125 categories) and built the refurbished flag a new storefront reuses.</li>
+          <li><strong>Storefront page migration:</strong> led the backend move of seller storefront pages to the main marketplace domain for SEO: 2 design docs, 10 planned tasks (8 delegated), a review RPC, and 4 list RPCs.</li>
+        </ul>
 
-  <h4>Platform &amp; Reliability</h4>
-  <ul>
-    <li><strong>Valkey migration:</strong> consolidated 21 over-provisioned Redis instances (60% of memory idle) into 6 shared HA Valkey clusters with IAM auth, cutting over one service at a time; audited net cache spend fell 53%.</li>
-    <li><strong>Shared cache client:</strong> rewrote the Go client on valkey-go (multiplexing, client-side caching) and moved 18 services onto it; on the 3 measured services, connections fell 29–59% and churn 65–77% vs. a v1 control.</li>
-    <li><strong>Category service:</strong> built an in-memory category-tree index reused by coupon and product services; cached a licensed-category check behind 87% of the service's SQL, cutting SQL per request nearly 80%.</li>
-  </ul>
+        <h3>Platform &amp; Reliability</h3>
+        <ul>
+          <li><strong>Valkey migration:</strong> consolidated 21 over-provisioned Redis instances (60% of memory idle) into 6 shared HA Valkey clusters with IAM auth, cutting over one service at a time; audited net cache spend fell 53%.</li>
+          <li><strong>Shared cache client:</strong> rewrote the Go client on valkey-go (multiplexing, client-side caching) and moved 18 services onto it; on the 3 measured services, connections fell 29–59% and churn 65–77% vs. a v1 control.</li>
+          <li><strong>Category service:</strong> built an in-memory category-tree index reused by coupon and product services; cached a licensed-category check behind 87% of the service's SQL, cutting SQL per request nearly 80%.</li>
+        </ul>
+      </article>
 
-  <h3>ROMS <span class="where">Tokyo, Japan</span></h3>
-  <div class="role">Senior Software Engineer <span class="when">Oct 2023 – Aug 2024</span></div>
-  <div class="clear"></div>
-  <ul>
-    <li>Served as technical lead for a serverless, event-driven gateway platform connecting customer applications and warehouse hardware systems.</li>
-    <li>Defined system architecture and specifications supporting thousands of daily events.</li>
-    <li>Delivered MVP systems and internal tools, reducing time-to-demo from months to weeks.</li>
-  </ul>
+      <article class="entry">
+        <div class="entry-head"><span class="company">ROMS</span><span class="where">Tokyo, Japan</span></div>
+        <div class="entry-sub"><span>Senior Software Engineer</span><span class="when">Oct 2023 – Aug 2024</span></div>
+        <ul>
+          <li>Served as technical lead for a serverless, event-driven gateway platform connecting customer applications and warehouse hardware systems.</li>
+          <li>Defined system architecture and specifications supporting thousands of daily events.</li>
+          <li>Delivered MVP systems and internal tools, reducing time-to-demo from months to weeks.</li>
+        </ul>
+      </article>
 
-  <h3>PayPay (Yahoo Group) <span class="where">Tokyo, Japan</span></h3>
-  <div class="role">Backend Engineer <span class="when">Jun 2023 – Sep 2023</span></div>
-  <div class="clear"></div>
-  <ul>
-    <li>Improved accounting-platform reliability by optimizing CI/CD pipelines and integration tests, reducing failed deployments by 40%.</li>
-    <li>Developed accounting batch jobs and reporting features for large-scale financial reconciliation.</li>
-  </ul>
+      <article class="entry">
+        <div class="entry-head"><span class="company">PayPay (Yahoo Group)</span><span class="where">Tokyo, Japan</span></div>
+        <div class="entry-sub"><span>Backend Engineer</span><span class="when">Jun 2023 – Sep 2023</span></div>
+        <ul>
+          <li>Improved accounting-platform reliability by optimizing CI/CD pipelines and integration tests, reducing failed deployments by 40%.</li>
+          <li>Developed accounting batch jobs and reporting features for large-scale financial reconciliation.</li>
+        </ul>
+      </article>
 
-  <h3>LINE (Yahoo Group) <span class="where">Tokyo, Japan</span></h3>
-  <div class="role">Backend Engineer <span class="when">Jan 2022 – May 2023</span></div>
-  <div class="clear"></div>
-  <ul>
-    <li>Developed high-traffic REST APIs for LINE Bank gateway systems.</li>
-    <li>Improved authorization and release processes, raising test coverage from 40% to 90%.</li>
-    <li>Built mock servers to reduce external API dependency costs by 30%.</li>
-  </ul>
+      <article class="entry">
+        <div class="entry-head"><span class="company">LINE (Yahoo Group)</span><span class="where">Tokyo, Japan</span></div>
+        <div class="entry-sub"><span>Backend Engineer</span><span class="when">Jan 2022 – May 2023</span></div>
+        <ul>
+          <li>Developed high-traffic REST APIs for LINE Bank gateway systems.</li>
+          <li>Improved authorization and release processes, raising test coverage from 40% to 90%.</li>
+          <li>Built mock servers to reduce external API dependency costs by 30%.</li>
+        </ul>
+      </article>
 
-  <h3>Money Forward <span class="where">Tokyo, Japan</span></h3>
-  <div class="role">Backend Engineer <span class="when">Jul 2020 – Jan 2022</span></div>
-  <div class="clear"></div>
-  <ul>
-    <li>Built financial aggregation systems integrating with 50+ banks and other financial institutions.</li>
-    <li>Migrated accounting services from Ruby on Rails to Spring Boot, improving throughput by 2×.</li>
-  </ul>
+      <article class="entry">
+        <div class="entry-head"><span class="company">Money Forward</span><span class="where">Tokyo, Japan</span></div>
+        <div class="entry-sub"><span>Backend Engineer</span><span class="when">Jul 2020 – Jan 2022</span></div>
+        <ul>
+          <li>Built financial aggregation systems integrating with 50+ banks and other financial institutions.</li>
+          <li>Migrated accounting services from Ruby on Rails to Spring Boot, improving throughput by 2×.</li>
+        </ul>
+      </article>
 
-  <h3>JILIGUALA <span class="where">Shanghai, China</span></h3>
-  <div class="role">Software Engineer <span class="when">Jul 2019 – Apr 2020</span></div>
-  <div class="clear"></div>
-  <ul>
-    <li>Backend and tooling for a cross-platform education game used by millions of users.</li>
-  </ul>
+      <article class="entry">
+        <div class="entry-head"><span class="company">JILIGUALA</span><span class="where">Shanghai, China</span></div>
+        <div class="entry-sub"><span>Software Engineer</span><span class="when">Jul 2019 – Apr 2020</span></div>
+        <ul>
+          <li>Backend and tooling for a cross-platform education game used by millions of users.</li>
+        </ul>
+      </article>
+    </section>
 
-  <h2>Selected Projects (personal, AI / agent)</h2>
-  <ul>
-    <li><strong>claude-memory</strong> (Feb 2026 – Present): four-layer persistent-memory MCP server in Go with SQLite FTS5; retrieval ranked by BM25, confidence, and freshness, with dedup and cross-layer promotion across 8 tools. In daily use, with 800+ records accumulated.</li>
-    <li><strong>night-shift</strong> (Aug 2026 – Present): autonomous research agent that runs scheduled headless Claude Code sessions; adversarially verifies claims in AI papers, keeps only verified conclusions, and compiles a daily briefing.</li>
-  </ul>
+    <section>
+      <h2>Selected Projects (personal, AI / agent)</h2>
+      <ul>
+        <li><strong>claude-memory</strong> (Feb 2026 – Present): four-layer persistent-memory MCP server in Go with SQLite FTS5; retrieval ranked by BM25, confidence, and freshness, with dedup and cross-layer promotion across 8 tools. In daily use, with 800+ records accumulated.</li>
+        <li><strong>night-shift</strong> (Aug 2026 – Present): autonomous research agent that runs scheduled headless Claude Code sessions; adversarially verifies claims in AI papers, keeps only verified conclusions, and compiles a daily briefing.</li>
+      </ul>
+    </section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li><strong>AI Engineering:</strong> LLM integration (Gemini, Claude), prompt engineering, LLM benchmarking &amp; evals, agent context and memory, MCP servers, Claude Code (skills, subagents, hooks), multi-agent workflows, RAG</li>
-    <li><strong>Backend:</strong> distributed systems, gRPC/GraphQL/REST, event-driven architectures (Pub/Sub, Cloud Tasks), idempotency, rate limiting, caching (Redis, Valkey), authentication, system design</li>
-    <li><strong>Languages (programming):</strong> Go, TypeScript, Python, Java, Kotlin</li>
-    <li><strong>Cloud &amp; Infra:</strong> GCP (Cloud SQL, Memorystore, BigQuery, Secret Manager), Kubernetes, Istio, Terraform, Datadog monitors-as-code, GitHub Actions CI/CD, serverless, observability, platform migration</li>
-  </ul>
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>AI Engineering:</strong> LLM integration (Gemini, Claude), prompt engineering, LLM benchmarking &amp; evals, agent context and memory, MCP servers, Claude Code (skills, subagents, hooks), multi-agent workflows, RAG</li>
+        <li><strong>Backend:</strong> distributed systems, gRPC/GraphQL/REST, event-driven architectures (Pub/Sub, Cloud Tasks), idempotency, rate limiting, caching (Redis, Valkey), authentication, system design</li>
+        <li><strong>Languages (programming):</strong> Go, TypeScript, Python, Java, Kotlin</li>
+        <li><strong>Cloud &amp; Infra:</strong> GCP (Cloud SQL, Memorystore, BigQuery, Secret Manager), Kubernetes, Istio, Terraform, Datadog monitors-as-code, GitHub Actions CI/CD, serverless, observability, platform migration</li>
+      </ul>
+    </section>
 
-  <h2>Languages</h2>
-  <p>English (TOEIC 940) · Japanese (JLPT N1) · Chinese (native)</p>
+    <section>
+      <h2>Languages</h2>
+      <p class="plain-line">English (TOEIC 940) · Japanese (JLPT N1) · Chinese (native)</p>
+    </section>
 
-  <h2>Education</h2>
-  <h3>East China Normal University <span class="where">Shanghai, China</span></h3>
-  <div class="role">Bachelor of Software Engineering <span class="when">Jul 2015 – Jun 2019</span></div>
-  <div class="clear"></div>
-</div>
+    <section>
+      <h2>Education</h2>
+      <article class="entry">
+        <div class="entry-head"><span class="company">East China Normal University</span><span class="where">Shanghai, China</span></div>
+        <div class="entry-sub"><span>Bachelor of Software Engineering</span><span class="when">Jul 2015 – Jun 2019</span></div>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
